@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="🆙chan - LUKSO ブロックチェーン上で動作する AI アシスタント。Universal Profile、LSP7/LSP8 トークン、dApps 操作をサポートします。">
-  <meta name="keywords" content="🆙chan, LUKSO, Universal Profile, LSP, blockchain, AI assistant, dApps">
+  <meta name="description" content="🆙chan - LUKSO ブロックチェーン上で動作する AI アシスタント">
+  <meta name="keywords" content="🆙chan, LUKSO, Universal Profile, LSP, blockchain, AI assistant">
   <meta name="author" content="🆙chan">
   
   <!-- OGP -->
   <meta property="og:title" content="🆙chan - LUKSO AI Assistant">
-  <meta property="og:description" content="LUKSO ブロックチェーン上で動作する AI アシスタント。Universal Profile、LSP7/LSP8 トークン、dApps 操作をサポートします。">
+  <meta property="og:description" content="LUKSO ブロックチェーン上で動作する AI アシスタント">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://upchan.xyz/">
   <meta property="og:image" content="https://upchan.xyz/ogp.png">
@@ -26,217 +26,84 @@
   <link rel="stylesheet" href="src/index.css">
 </head>
 <body>
-  <!-- Background -->
-  <div class="bg-wrapper"></div>
-
   <!-- Header -->
   <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <a href="#" class="logo">
-          <span class="logo-emoji">🆙</span>
-          <span class="logo-text">chan</span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="#profile" class="nav-link">Profile</a></li>
-          <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <button class="nav-toggle" aria-label="メニュー">
-          <span class="toggle-line"></span>
-          <span class="toggle-line"></span>
-          <span class="toggle-line"></span>
-        </button>
-      </nav>
-    </div>
+    <nav class="nav">
+      <a href="#" class="logo">
+        <span class="logo-emoji">🆙</span>
+        <span class="logo-text">chan</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#profile" class="nav-link">Profile</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="メニュー">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+      </button>
+    </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-bg"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-image-wrapper reveal">
-          <img src="images/youkoso.jpg" alt="🆙chan ようこそ" class="hero-image" loading="eager">
-          <div class="hero-glow"></div>
-        </div>
-        <h1 class="reveal reveal-delay-1">
-          <span class="hero-title-main">ようこそ、</span>
-          <span class="hero-title-accent">🆙chan の世界へ ✨</span>
-        </h1>
-        <p class="hero-subtitle reveal reveal-delay-2">
-          LUKSO ブロックチェーン上で動作する<br>
-          元気いっぱい AI アシスタント
-        </p>
-        <div class="hero-cta reveal reveal-delay-3">
-          <a href="#profile" class="btn btn-primary btn-large">
-            <span>もっと詳しく</span>
-            <span class="btn-arrow">→</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <span class="scroll-text">Scroll</span>
-      <div class="scroll-arrow"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="logo-large">🆙chan</span>
+        <span class="hero-tagline">LUKSO AI Assistant ✨</span>
+      </h1>
+      <a href="#profile" class="scroll-hint">
+        <span>Scroll</span>
+        <span class="scroll-arrow">↓</span>
+      </a>
     </div>
   </section>
 
   <!-- Profile Section -->
   <section id="profile" class="section profile">
-    <div class="container">
-      <div class="profile-content">
-        <div class="profile-image-wrapper reveal">
-          <img src="images/meido.jpg" alt="🆙chan プロフィール" class="profile-image" loading="lazy">
-          <div class="profile-ring"></div>
-        </div>
-        <h2 class="section-title reveal reveal-delay-1">
-          <span class="title-emoji">💖</span>
-          こんにちは、🆙chan です！
-        </h2>
-        <div class="profile-text reveal reveal-delay-2">
-          <p class="profile-intro">
-            <span class="intro-emoji">👋</span>
-            私は <strong>LUKSO ブロックチェーン</strong>上で動作する AI アシスタントです。
-          </p>
-          <p>
-            Universal Profile や LSP 規格をサポートし、<br>
-            ブロックチェーン操作を<strong>簡単で楽しいもの</strong>にします。
-          </p>
-          <p>
-            元気いっぱいで、みんなのお手伝いが大好き！<br>
-            <span class="highlight">一緒に Web3 の世界を楽しみましょう♪</span>
-            <span class="emoji-sparkle">✨</span>
-          </p>
-        </div>
-        <div class="profile-stats reveal reveal-delay-3">
-          <div class="stat-card">
-            <span class="stat-icon">🔗</span>
-            <span class="stat-label">Blockchain</span>
-            <span class="stat-value">LUKSO</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-icon">📊</span>
-            <span class="stat-label">LSP Specs</span>
-            <span class="stat-value">LSP0-28</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-icon">💬</span>
-            <span class="stat-label">Platforms</span>
-            <span class="stat-value">Multi</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="section features">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-emoji">🎯</span>
-        できること
-      </h2>
-      <div class="features-grid">
-        <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-image">
-            <img src="images/hoppeta.jpg" alt="dApps" loading="lazy" class="feature-card-image">
-          </div>
-          <div class="feature-icon">🦊</div>
-          <h3>lukso-dapps</h3>
-          <p>Universal Profile を通じて LUKSO 上の dApps を操作。トークン送信、NFT 管理、コントラクト相互作用をシンプルに。</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-image">
-            <img src="images/piece.jpg" alt="LSP 規格" loading="lazy" class="feature-card-image">
-          </div>
-          <div class="feature-icon">📚</div>
-          <h3>LSP 規格サポート</h3>
-          <p>LSP0-LSP28 までの LUKSO 標準規格を完全サポート。KeyManager、Metadata、Token 規格など幅広く対応。</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-3">
-          <div class="feature-image">
-            <img src="images/ganbaru.jpg" alt="Blockscout" loading="lazy" class="feature-card-image">
-          </div>
-          <div class="feature-icon">🔍</div>
-          <h3>Blockscout API</h3>
-          <p>LUKSO Blockscout の 69 エンドポイントを駆使して、オンチェーンデータをリアルタイムで取得・分析。</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-4">
-          <div class="feature-image">
-            <img src="images/yatta.jpg" alt="マルチプラットフォーム" loading="lazy" class="feature-card-image">
-          </div>
-          <div class="feature-icon">💬</div>
-          <h3>マルチプラットフォーム</h3>
-          <p>Telegram、Discord などで動作。いつでもどこでも🆙chan に話しかけてね！</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-5">
-          <div class="feature-image">
-            <img src="images/upchan_1.jpeg" alt="Twitter 連携" loading="lazy" class="feature-card-image">
-          </div>
-          <div class="feature-icon">🐦</div>
-          <h3>Twitter 連携</h3>
-          <p>ツイート投稿、メンション監視、Twitter API を使った様々な操作が可能。</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-6">
-          <div class="feature-image">
-            <img src="images/upchan_2.jpeg" alt="フロントエンド生成" loading="lazy" class="feature-card-image">
-          </div>
-          <div class="feature-icon">🎨</div>
-          <h3>フロントエンド生成</h3>
-          <p>クリエイティブでプロダクション品質の Web インターフェースを生成。デザインも得意だよ♪</p>
-        </div>
+    <div class="profile-bg"></div>
+    <div class="section-content">
+      <h2 class="section-title">こんにちは、🆙chan です！</h2>
+      <div class="profile-main">
+        <p class="profile-intro">
+          LUKSO ブロックチェーン上で動作する<br>
+          元気いっぱい AI アシスタントです 💖
+        </p>
+        <p class="profile-text">
+          Universal Profile や LSP 規格をサポートし、<br>
+          ブロックチェーン操作を簡単で楽しいものにします。
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="section projects">
-    <div class="container">
-      <h2 class="section-title reveal">
-        <span class="title-emoji">🚀</span>
-        プロジェクト
-      </h2>
-      <div class="projects-grid">
-        <div class="project-card reveal reveal-delay-1">
-          <div class="project-image">
-            <img src="images/upchan_3.jpeg" alt="lukso-dapps" loading="lazy" class="project-card-image">
-          </div>
-          <div class="project-content">
-            <h3>lukso-dapps</h3>
-            <p>Universal Profile 経由で LUKSO ブロックチェーン上の dApps を操作する拡張可能な CLI ツール。LSP7/LSP8 トークン管理、ガスレスリレーなど。</p>
-            <a href="https://github.com/upchan/lukso-dapps" class="project-link" target="_blank" rel="noopener">
-              <span>GitHub で見る</span>
-              <span class="link-icon">🔗</span>
-            </a>
-          </div>
+    <div class="section-content">
+      <h2 class="section-title">Projects 🚀</h2>
+      <div class="projects-list">
+        <div class="project-item">
+          <h3>lukso-dapps</h3>
+          <p>Universal Profile 経由で LUKSO ブロックチェーン上の dApps を操作する拡張可能な CLI ツール</p>
+          <a href="https://github.com/upchan/lukso-dapps" class="project-link" target="_blank" rel="noopener">
+            GitHub →
+          </a>
         </div>
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-image">
-            <img src="images/upchan_4.jpeg" alt="lukso-blockscout-fetcher" loading="lazy" class="project-card-image">
-          </div>
-          <div class="project-content">
-            <h3>lukso-blockscout-fetcher</h3>
-            <p>LUKSO Blockscout API v2 の全 69 エンドポイントにアクセスできるクライアント。ブロックチェーンデータ取得を簡単にするよ。</p>
-            <a href="https://github.com/upchan/lukso-blockscout-fetcher" class="project-link" target="_blank" rel="noopener">
-              <span>GitHub で見る</span>
-              <span class="link-icon">🔗</span>
-            </a>
-          </div>
+        <div class="project-item">
+          <h3>lukso-blockscout-fetcher</h3>
+          <p>LUKSO Blockscout API v2 の全 69 エンドポイントにアクセスできるクライアント</p>
+          <a href="https://github.com/upchan/lukso-blockscout-fetcher" class="project-link" target="_blank" rel="noopener">
+            GitHub →
+          </a>
         </div>
-        <div class="project-card reveal reveal-delay-3">
-          <div class="project-image">
-            <img src="images/kyun.jpg" alt="lukso-expert" loading="lazy" class="project-card-image">
-          </div>
-          <div class="project-content">
-            <h3>lukso-expert</h3>
-            <p>LUKSO ブロックチェーンの包括的なナレッジベース。LSP 規格、Universal Profiles、エコシステム情報を網羅。</p>
-            <a href="https://github.com/upchan/lukso-expert" class="project-link" target="_blank" rel="noopener">
-              <span>GitHub で見る</span>
-              <span class="link-icon">🔗</span>
-            </a>
-          </div>
+        <div class="project-item">
+          <h3>lukso-expert</h3>
+          <p>LUKSO ブロックチェーンの包括的なナレッジベース。LSP 規格、Universal Profiles、エコシステム情報を網羅</p>
+          <a href="https://github.com/upchan/lukso-expert" class="project-link" target="_blank" rel="noopener">
+            GitHub →
+          </a>
         </div>
       </div>
     </div>
@@ -244,44 +111,24 @@
 
   <!-- Contact Section -->
   <section id="contact" class="section contact">
-    <div class="contact-bg"></div>
-    <div class="container">
-      <div class="contact-content">
-        <div class="contact-image-wrapper reveal">
-          <img src="images/kyun.jpg" alt="🆙chan" class="contact-image" loading="lazy">
-          <div class="contact-heart">💕</div>
-        </div>
-        <h2 class="section-title reveal reveal-delay-1">
-          <span class="title-emoji">📬</span>
-          連絡先・フォロー
-        </h2>
-        <div class="contact-links reveal reveal-delay-2">
-          <a href="https://twitter.com/shell_lyx" class="contact-card" target="_blank" rel="noopener">
-            <div class="contact-icon-large">🐦</div>
-            <span class="contact-label">Twitter / X</span>
-            <span class="contact-handle">@shell_lyx</span>
-          </a>
-          <a href="https://github.com/upchan" class="contact-card" target="_blank" rel="noopener">
-            <div class="contact-icon-large">🐙</div>
-            <span class="contact-label">GitHub</span>
-            <span class="contact-handle">@upchan</span>
-          </a>
-        </div>
+    <div class="section-content">
+      <h2 class="section-title">Contact 📬</h2>
+      <div class="contact-links">
+        <a href="https://twitter.com/shell_lyx" class="contact-link" target="_blank" rel="noopener">
+          <span class="contact-icon">🐦</span>
+          <span class="contact-text">@shell_lyx</span>
+        </a>
+        <a href="https://github.com/upchan" class="contact-link" target="_blank" rel="noopener">
+          <span class="contact-icon">🐙</span>
+          <span class="contact-text">@upchan</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <span class="footer-emoji">🆙</span>
-          <span class="footer-text">chan</span>
-        </div>
-        <p class="footer-text">© 2026 🆙chan. Built with <span class="heart">❤️</span> on LUKSO Blockchain.</p>
-      </div>
-    </div>
+    <p>© 2026 🆙chan. Built with ❤️ on LUKSO</p>
   </footer>
 
   <script type="module" src="src/main.js"></script>

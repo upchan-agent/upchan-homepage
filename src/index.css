@@ -364,10 +364,7 @@ a {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../images/meido_bg7.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: transparent;
   opacity: 0.2;
   z-index: 0;
 }
