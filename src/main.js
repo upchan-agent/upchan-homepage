@@ -139,6 +139,14 @@ class ScrollAnimationController {
         if (profileIntro) this.observer.observe(profileIntro);
         if (profileText) this.observer.observe(profileText);
 
+        // Features 画像
+        const featureImage = document.querySelector('.feature-image');
+        if (featureImage) this.observer.observe(featureImage);
+
+        // Contact 画像
+        const contactImage = document.querySelector('.contact-image');
+        if (contactImage) this.observer.observe(contactImage);
+
         // プロジェクトアイテム
         const projectItems = document.querySelectorAll('.project-item');
         projectItems.forEach((el, index) => {
