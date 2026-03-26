@@ -1,12 +1,10 @@
 /**
- * 🆙chan Homepage - Layered Pop Theme
+ * 🆙chan Homepage - frontend-design-official
  * 
  * 機能：
  * 1. レスポンシブナビゲーション
- * 2. スクロールアニメーション（Intersection Observer）
- * 3. 画像の遅延読み込み
- * 4. ヘッダーのスクロール連動
- * 5. スタグガードアニメーション
+ * 2. スクロールアニメーション（Intersection Observer・最小限）
+ * 3. ヘッダーのスクロール連動
  */
 
 // ============================================
@@ -19,9 +17,6 @@ const CONFIG = {
     },
     SCROLL: {
         HIDE_THRESHOLD: 100
-    },
-    STAGGER: {
-        DELAY: 100
     }
 };
 
@@ -100,7 +95,7 @@ class ResponsiveNavigation {
 }
 
 // ============================================
-// スクロールアニメーション（Intersection Observer）
+// スクロールアニメーション（Intersection Observer・最小限）
 // ============================================
 class ScrollAnimationController {
     constructor() {
@@ -117,14 +112,12 @@ class ScrollAnimationController {
         this.observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    // 一度表示されたら監視を停止
+                    this.addVisibleClass(entry.target);
                     this.observer.unobserve(entry.target);
                 }
             });
         }, options);
 
-        // DOM 読み込み後に要素を監視
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.observeElements());
         } else {
@@ -133,91 +126,38 @@ class ScrollAnimationController {
     }
 
     observeElements() {
-        // reveal クラスを持つ要素をすべて監視
-        const elements = document.querySelectorAll('.reveal');
-        elements.forEach(el => {
+        // セクションタイトル
+        const titles = document.querySelectorAll('.section-title');
+        titles.forEach(el => this.observer.observe(el));
+
+        // プロフィール要素
+        const profileImage = document.querySelector('.profile-image');
+        const profileIntro = document.querySelector('.profile-intro');
+        const profileText = document.querySelector('.profile-text');
+        
+        if (profileImage) this.observer.observe(profileImage);
+        if (profileIntro) this.observer.observe(profileIntro);
+        if (profileText) this.observer.observe(profileText);
+
+        // プロジェクトアイテム
+        const projectItems = document.querySelectorAll('.project-item');
+        projectItems.forEach((el, index) => {
+            el.style.transitionDelay = `${index * 150}ms`;
+            this.observer.observe(el);
+        });
+
+        // コンタクトリンク
+        const contactLinks = document.querySelectorAll('.contact-link');
+        contactLinks.forEach((el, index) => {
+            el.style.transitionDelay = `${index * 100}ms`;
             this.observer.observe(el);
         });
     }
 
-    /**
-     * 要素を手動で表示
-     */
-    revealElement(element) {
+    addVisibleClass(element) {
         if (element) {
-            element.classList.add('revealed');
+            element.classList.add('visible');
         }
-    }
-}
-
-// ============================================
-// 画像の遅延読み込み
-// ============================================
-class LazyImageLoader {
-    constructor() {
-        this.observer = null;
-        this.init();
-    }
-
-    init() {
-        const options = {
-            rootMargin: '50px 0px',
-            threshold: 0.01
-        };
-
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    this.loadImage(img);
-                    this.observer.unobserve(img);
-                }
-            });
-        }, options);
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => this.observeImages());
-        } else {
-            this.observeImages();
-        }
-    }
-
-    observeImages() {
-        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-        lazyImages.forEach(img => {
-            this.observer.observe(img);
-        });
-    }
-
-    loadImage(img) {
-        // 読み込み前のプレースホルダーを維持
-        img.addEventListener('load', () => {
-            img.classList.add('loaded');
-        }, { once: true });
-
-        // エラーハンドリング
-        img.addEventListener('error', () => {
-            console.warn('画像の読み込みに失敗しました:', img.src);
-            img.classList.add('loaded');
-        }, { once: true });
-    }
-}
-
-// ============================================
-// ステagger アニメーション（順番にフェードイン）
-// ============================================
-class StaggerAnimation {
-    constructor(selector, options = {}) {
-        this.selector = selector;
-        this.delay = options.delay || CONFIG.STAGGER.DELAY;
-        this.init();
-    }
-
-    init() {
-        const elements = document.querySelectorAll(this.selector);
-        elements.forEach((el, index) => {
-            el.style.transitionDelay = `${index * this.delay}ms`;
-        });
     }
 }
 
@@ -238,7 +178,7 @@ class App {
     }
 
     start() {
-        console.log('🆙chan Homepage - Layered Pop 起動中... ✨');
+        console.log('🆙chan Homepage - frontend-design-official 起動中... ✨');
 
         // ナビゲーション初期化
         new ResponsiveNavigation();
@@ -246,79 +186,9 @@ class App {
         // スクロールアニメーション初期化
         new ScrollAnimationController();
 
-        // 画像の遅延読み込み初期化
-        new LazyImageLoader();
-
-        // カードのスタッガードアニメーション
-        new StaggerAnimation('.feature-card', { delay: 100 });
-        new StaggerAnimation('.project-card', { delay: 150 });
-        new StaggerAnimation('.stat-card', { delay: 100 });
-
-        console.log('✨ 準備完了！Layered Pop テーマで元気いっぱい！');
+        console.log('✨ 準備完了！フルワイドデザインで元気いっぱい！');
     }
 }
 
 // アプリケーション起動
 new App();
-
-// ============================================
-// ユーティリティ関数
-// ============================================
-
-/**
- * 要素がビューポートに入ったかを判定
- */
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-/**
- * スムーズスクロール
- */
-function smoothScrollTo(targetId, offset = 0) {
-    const target = document.querySelector(targetId);
-    if (!target) return;
-
-    const position = target.offsetTop - offset;
-    window.scrollTo({
-        top: position,
-        behavior: 'smooth'
-    });
-}
-
-/**
- * ローカルストレージから設定を取得
- */
-function getStoredSetting(key, defaultValue = null) {
-    try {
-        const item = localStorage.getItem(key);
-        return item !== null ? JSON.parse(item) : defaultValue;
-    } catch (e) {
-        console.warn('ローカルストレージの読み込みに失敗しました:', e);
-        return defaultValue;
-    }
-}
-
-/**
- * ローカルストレージに設定を保存
- */
-function setStoredSetting(key, value) {
-    try {
-        localStorage.setItem(key, JSON.stringify(value));
-    } catch (e) {
-        console.warn('ローカルストレージへの保存に失敗しました:', e);
-    }
-}
-
-// グローバルにエクスポート（必要に応じて）
-window.upchan = {
-    smoothScrollTo,
-    getStoredSetting,
-    setStoredSetting
-};
