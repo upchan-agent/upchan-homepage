@@ -1,12 +1,12 @@
 /**
- * 🆙chan Homepage - Enhanced JavaScript
+ * 🆙chan Homepage - Layered Pop Theme
  * 
  * 機能：
  * 1. レスポンシブナビゲーション
- * 2. ダークモード切り替え
- * 3. スクロールアニメーション（Intersection Observer）
- * 4. 画像の遅延読み込み
- * 5. ヘッダーのスクロール連動
+ * 2. スクロールアニメーション（Intersection Observer）
+ * 3. 画像の遅延読み込み
+ * 4. ヘッダーのスクロール連動
+ * 5. スタグガードアニメーション
  */
 
 // ============================================
@@ -19,6 +19,9 @@ const CONFIG = {
     },
     SCROLL: {
         HIDE_THRESHOLD: 100
+    },
+    STAGGER: {
+        DELAY: 100
     }
 };
 
@@ -40,7 +43,6 @@ class ResponsiveNavigation {
     addEventListeners() {
         const toggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-        const themeToggle = document.querySelector('.theme-toggle');
         const header = document.querySelector('.header');
 
         // ハンバーガーメニュー
@@ -61,29 +63,6 @@ class ResponsiveNavigation {
                     }
                 });
             });
-        }
-
-        // ダークモード切り替え
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                const icon = themeToggle.querySelector('.theme-icon');
-                if (icon) {
-                    icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-                }
-                
-                // 設定を保存
-                localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-            });
-
-            // 初期状態を復元
-            if (localStorage.getItem('darkMode') === 'true') {
-                document.body.classList.add('dark-mode');
-                const icon = themeToggle.querySelector('.theme-icon');
-                if (icon) {
-                    icon.textContent = '☀️';
-                }
-            }
         }
 
         // スクロール時にヘッダーを非表示/表示
@@ -225,6 +204,24 @@ class LazyImageLoader {
 }
 
 // ============================================
+// ステagger アニメーション（順番にフェードイン）
+// ============================================
+class StaggerAnimation {
+    constructor(selector, options = {}) {
+        this.selector = selector;
+        this.delay = options.delay || CONFIG.STAGGER.DELAY;
+        this.init();
+    }
+
+    init() {
+        const elements = document.querySelectorAll(this.selector);
+        elements.forEach((el, index) => {
+            el.style.transitionDelay = `${index * this.delay}ms`;
+        });
+    }
+}
+
+// ============================================
 // メインアプリケーション
 // ============================================
 class App {
@@ -241,7 +238,7 @@ class App {
     }
 
     start() {
-        console.log('🆙chan Homepage 起動中... ✨');
+        console.log('🆙chan Homepage - Layered Pop 起動中... ✨');
 
         // ナビゲーション初期化
         new ResponsiveNavigation();
@@ -252,7 +249,12 @@ class App {
         // 画像の遅延読み込み初期化
         new LazyImageLoader();
 
-        console.log('✨ 準備完了！');
+        // カードのスタッガードアニメーション
+        new StaggerAnimation('.feature-card', { delay: 100 });
+        new StaggerAnimation('.project-card', { delay: 150 });
+        new StaggerAnimation('.stat-card', { delay: 100 });
+
+        console.log('✨ 準備完了！Layered Pop テーマで元気いっぱい！');
     }
 }
 
