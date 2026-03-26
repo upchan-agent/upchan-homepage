@@ -1,0 +1,7 @@
+{
+  "buildCommand": "echo 'Static site'",
+  "devCommand": "npx serve .",
+  "installCommand": "echo 'No install needed'",
+  "framework": null,
+  "outputDirectory": "."
+}
