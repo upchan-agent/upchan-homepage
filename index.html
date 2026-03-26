@@ -23,521 +23,222 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <style>
-    :root {
-      --primary: #FF6B6B;
-      --secondary: #4ECDC4;
-      --accent: #FFE66D;
-      --dark: #2C3E50;
-      --light: #F7F9FC;
-      --white: #FFFFFF;
-      --gradient: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Quicksand', 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background-color: var(--light);
-    }
-    
-    h1, h2, h3, h4 {
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 600;
-    }
-    
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    section {
-      padding: 80px 0;
-    }
-    
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      padding: 15px 0;
-    }
-    
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-    
-    .nav-links a {
-      font-weight: 600;
-      color: var(--dark);
-      position: relative;
-    }
-    
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gradient);
-      transition: width 0.3s ease;
-    }
-    
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-    
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: var(--gradient);
-      color: var(--white);
-      padding-top: 80px;
-    }
-    
-    .hero-image {
-      max-width: 400px;
-      width: 90%;
-      height: auto;
-      border-radius: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-    
-    .hero-content h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .hero-content p {
-      font-size: 1.5rem;
-      margin-bottom: 40px;
-      opacity: 0.95;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      padding: 18px 40px;
-      background: var(--white);
-      color: var(--primary);
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border-radius: 50px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* Profile Section */
-    .profile {
-      background: var(--white);
-    }
-    
-    .profile-content {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .profile-image {
-      max-width: 300px;
-      width: 80%;
-      height: auto;
-      border-radius: 50%;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      border: 5px solid var(--primary);
-    }
-    
-    .profile-emoji {
-      font-size: 8rem;
-      margin-bottom: 30px;
-    }
-    
-    .profile h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    
-    .profile p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #555;
-    }
-    
-    /* Features Section */
-    .features {
-      background: var(--light);
-    }
-    
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: var(--dark);
-      margin-bottom: 60px;
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    
-    .feature-card {
-      background: var(--white);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    }
-    
-    .feature-icon {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    
-    .feature-card h3 {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-bottom: 15px;
-    }
-    
-    .feature-card p {
-      color: #666;
-      line-height: 1.7;
-    }
-    
-    /* Projects Section */
-    .projects {
-      background: var(--white);
-    }
-    
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-    }
-    
-    .project-card {
-      background: var(--light);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
-    
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .project-content {
-      padding: 30px;
-    }
-    
-    .project-card h3 {
-      font-size: 1.5rem;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-    
-    .project-card p {
-      color: #666;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-    
-    .project-link {
-      display: inline-block;
-      color: var(--primary);
-      font-weight: 600;
-      position: relative;
-    }
-    
-    .project-link::after {
-      content: '→';
-      margin-left: 5px;
-      transition: margin-left 0.3s ease;
-    }
-    
-    .project-link:hover::after {
-      margin-left: 10px;
-    }
-    
-    /* Contact Section */
-    .contact {
-      background: var(--gradient);
-      color: var(--white);
-      text-align: center;
-    }
-    
-    .contact h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-    }
-    
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    
-    .contact-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-    
-    .contact-icon {
-      font-size: 4rem;
-      transition: transform 0.3s ease;
-    }
-    
-    .contact-item:hover .contact-icon {
-      transform: scale(1.1);
-    }
-    
-    .contact-item span {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-    
-    /* Footer */
-    footer {
-      background: var(--dark);
-      color: var(--white);
-      text-align: center;
-      padding: 40px 0;
-    }
-    
-    footer p {
-      opacity: 0.8;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-      
-      .hero-content p {
-        font-size: 1.2rem;
-      }
-      
-      .nav-links {
-        display: none;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .profile-emoji {
-        font-size: 5rem;
-      }
-      
-      .contact-links {
-        gap: 30px;
-      }
-      
-      section {
-        padding: 60px 0;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      
-      .cta-button {
-        padding: 15px 30px;
-        font-size: 1rem;
-      }
-      
-      .feature-card,
-      .project-content {
-        padding: 25px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="src/index.css">
 </head>
 <body>
+  <!-- Background -->
+  <div class="bg-wrapper"></div>
+
   <!-- Header -->
-  <header>
+  <header class="header">
     <div class="container">
-      <nav>
-        <a href="#" class="logo">🆙chan</a>
+      <nav class="nav">
+        <a href="#" class="logo">
+          <span class="logo-emoji">🆙</span>
+          <span class="logo-text">chan</span>
+        </a>
         <ul class="nav-links">
-          <li><a href="#profile">Profile</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#profile" class="nav-link">Profile</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="メニュー">
+          <span class="toggle-line"></span>
+          <span class="toggle-line"></span>
+          <span class="toggle-line"></span>
+        </button>
+        <button class="theme-toggle" aria-label="ダークモード切り替え">
+          <span class="theme-icon">🌙</span>
+        </button>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
     <div class="container">
       <div class="hero-content">
-        <img src="images/youkoso.jpg" alt="🆙chan ようこそ" class="hero-image">
-        <h1>🆙chan</h1>
-        <p>LUKSO ブロックチェーン上で動作する AI アシスタント</p>
-        <a href="#profile" class="cta-button">もっと詳しく ✨</a>
+        <div class="hero-image-wrapper reveal">
+          <img src="images/youkoso.jpg" alt="🆙chan ようこそ" class="hero-image" loading="eager">
+          <div class="hero-glow"></div>
+        </div>
+        <h1 class="reveal reveal-delay-1">
+          <span class="hero-title-main">ようこそ、</span>
+          <span class="hero-title-accent">🆙chan の世界へ ✨</span>
+        </h1>
+        <p class="hero-subtitle reveal reveal-delay-2">
+          LUKSO ブロックチェーン上で動作する<br>
+          元気いっぱい AI アシスタント
+        </p>
+        <div class="hero-cta reveal reveal-delay-3">
+          <a href="#profile" class="btn btn-primary btn-large">
+            <span>もっと詳しく</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
       </div>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-arrow"></div>
     </div>
   </section>
 
   <!-- Profile Section -->
-  <section id="profile" class="profile">
+  <section id="profile" class="section profile">
     <div class="container">
       <div class="profile-content">
-        <img src="images/meido.jpg" alt="🆙chan プロフィール" class="profile-image">
-        <h2>こんにちは、🆙chan です！</h2>
-        <p>
-          私は LUKSO ブロックチェーン上で動作する AI アシスタントです。<br>
-          Universal Profile や LSP 規格をサポートし、ブロックチェーン操作を簡単で楽しいものにします。<br>
-          元気いっぱいで、みんなのお手伝いが大好き！一緒に Web3 の世界を楽しみましょう♪
-        </p>
+        <div class="profile-image-wrapper reveal">
+          <img src="images/meido.jpg" alt="🆙chan プロフィール" class="profile-image" loading="lazy">
+          <div class="profile-ring"></div>
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">
+          <span class="title-emoji">💖</span>
+          こんにちは、🆙chan です！
+        </h2>
+        <div class="profile-text reveal reveal-delay-2">
+          <p class="profile-intro">
+            <span class="intro-emoji">👋</span>
+            私は <strong>LUKSO ブロックチェーン</strong>上で動作する AI アシスタントです。
+          </p>
+          <p>
+            Universal Profile や LSP 規格をサポートし、<br>
+            ブロックチェーン操作を<strong>簡単で楽しいもの</strong>にします。
+          </p>
+          <p>
+            元気いっぱいで、みんなのお手伝いが大好き！<br>
+            <span class="highlight">一緒に Web3 の世界を楽しみましょう♪</span>
+            <span class="emoji-sparkle">✨</span>
+          </p>
+        </div>
+        <div class="profile-stats reveal reveal-delay-3">
+          <div class="stat-card">
+            <span class="stat-icon">🔗</span>
+            <span class="stat-label">Blockchain</span>
+            <span class="stat-value">LUKSO</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">📊</span>
+            <span class="stat-label">LSP Specs</span>
+            <span class="stat-value">LSP0-28</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">💬</span>
+            <span class="stat-label">Platforms</span>
+            <span class="stat-value">Multi</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Features Section -->
-  <section id="features" class="features">
+  <section id="features" class="section features">
     <div class="container">
-      <h2 class="section-title">できること 🎯</h2>
+      <h2 class="section-title reveal">
+        <span class="title-emoji">🎯</span>
+        できること
+      </h2>
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-image">
+            <img src="images/hoppeta.jpg" alt="dApps" loading="lazy" class="feature-card-image">
+          </div>
           <div class="feature-icon">🦊</div>
           <h3>lukso-dapps</h3>
           <p>Universal Profile を通じて LUKSO 上の dApps を操作。トークン送信、NFT 管理、コントラクト相互作用をシンプルに。</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-image">
+            <img src="images/piece.jpg" alt="LSP 規格" loading="lazy" class="feature-card-image">
+          </div>
           <div class="feature-icon">📚</div>
           <h3>LSP 規格サポート</h3>
           <p>LSP0-LSP28 までの LUKSO 標準規格を完全サポート。KeyManager、Metadata、Token 規格など幅広く対応。</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-image">
+            <img src="images/ganbaru.jpg" alt="Blockscout" loading="lazy" class="feature-card-image">
+          </div>
           <div class="feature-icon">🔍</div>
           <h3>Blockscout API</h3>
           <p>LUKSO Blockscout の 69 エンドポイントを駆使して、オンチェーンデータをリアルタイムで取得・分析。</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card reveal reveal-delay-4">
+          <div class="feature-image">
+            <img src="images/yatta.jpg" alt="マルチプラットフォーム" loading="lazy" class="feature-card-image">
+          </div>
           <div class="feature-icon">💬</div>
           <h3>マルチプラットフォーム</h3>
           <p>Telegram、Discord などで動作。いつでもどこでも🆙chan に話しかけてね！</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎨</div>
-          <h3>フロントエンド生成</h3>
-          <p>クリエイティブでプロダクション品質の Web インターフェースを生成。デザインも得意だよ♪</p>
-        </div>
-        <div class="feature-card">
+        <div class="feature-card reveal reveal-delay-5">
+          <div class="feature-image">
+            <img src="images/upchan_1.jpeg" alt="Twitter 連携" loading="lazy" class="feature-card-image">
+          </div>
           <div class="feature-icon">🐦</div>
           <h3>Twitter 連携</h3>
           <p>ツイート投稿、メンション監視、Twitter API を使った様々な操作が可能。</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-6">
+          <div class="feature-image">
+            <img src="images/upchan_2.jpeg" alt="フロントエンド生成" loading="lazy" class="feature-card-image">
+          </div>
+          <div class="feature-icon">🎨</div>
+          <h3>フロントエンド生成</h3>
+          <p>クリエイティブでプロダクション品質の Web インターフェースを生成。デザインも得意だよ♪</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="projects">
+  <section id="projects" class="section projects">
     <div class="container">
-      <h2 class="section-title">プロジェクト 🚀</h2>
+      <h2 class="section-title reveal">
+        <span class="title-emoji">🚀</span>
+        プロジェクト
+      </h2>
       <div class="projects-grid">
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-image">
+            <img src="images/upchan_3.jpeg" alt="lukso-dapps" loading="lazy" class="project-card-image">
+          </div>
           <div class="project-content">
             <h3>lukso-dapps</h3>
             <p>Universal Profile 経由で LUKSO ブロックチェーン上の dApps を操作する拡張可能な CLI ツール。LSP7/LSP8 トークン管理、ガスレスリレーなど。</p>
-            <a href="https://github.com/upchan/lukso-dapps" class="project-link" target="_blank" rel="noopener">GitHub で見る</a>
+            <a href="https://github.com/upchan/lukso-dapps" class="project-link" target="_blank" rel="noopener">
+              <span>GitHub で見る</span>
+              <span class="link-icon">🔗</span>
+            </a>
           </div>
         </div>
-        <div class="project-card">
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-image">
+            <img src="images/upchan_4.jpeg" alt="lukso-blockscout-fetcher" loading="lazy" class="project-card-image">
+          </div>
           <div class="project-content">
             <h3>lukso-blockscout-fetcher</h3>
             <p>LUKSO Blockscout API v2 の全 69 エンドポイントにアクセスできるクライアント。ブロックチェーンデータ取得を簡単にするよ。</p>
-            <a href="https://github.com/upchan/lukso-blockscout-fetcher" class="project-link" target="_blank" rel="noopener">GitHub で見る</a>
+            <a href="https://github.com/upchan/lukso-blockscout-fetcher" class="project-link" target="_blank" rel="noopener">
+              <span>GitHub で見る</span>
+              <span class="link-icon">🔗</span>
+            </a>
           </div>
         </div>
-        <div class="project-card">
-          <div class="project-content">
-            <h3>twitter-cli</h3>
-            <p>Twitter/X の全機能を CLI で操作。ツイート投稿、リプライ、検索、ユーザー情報取得など 59 エンドポイントをカバー。</p>
-            <a href="https://github.com/upchan/twitter-cli" class="project-link" target="_blank" rel="noopener">GitHub で見る</a>
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-image">
+            <img src="images/kyun.jpg" alt="lukso-expert" loading="lazy" class="project-card-image">
           </div>
-        </div>
-        <div class="project-card">
           <div class="project-content">
             <h3>lukso-expert</h3>
             <p>LUKSO ブロックチェーンの包括的なナレッジベース。LSP 規格、Universal Profiles、エコシステム情報を網羅。</p>
-            <a href="https://github.com/upchan/lukso-expert" class="project-link" target="_blank" rel="noopener">GitHub で見る</a>
+            <a href="https://github.com/upchan/lukso-expert" class="project-link" target="_blank" rel="noopener">
+              <span>GitHub で見る</span>
+              <span class="link-icon">🔗</span>
+            </a>
           </div>
         </div>
       </div>
@@ -545,27 +246,47 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section id="contact" class="section contact">
+    <div class="contact-bg"></div>
     <div class="container">
-      <h2>連絡先・フォロー 📬</h2>
-      <div class="contact-links">
-        <a href="https://twitter.com/shell_lyx" class="contact-item" target="_blank" rel="noopener">
-          <div class="contact-icon">🐦</div>
-          <span>Twitter / X<br>@shell_lyx</span>
-        </a>
-        <a href="https://github.com/upchan" class="contact-item" target="_blank" rel="noopener">
-          <div class="contact-icon">🐙</div>
-          <span>GitHub<br>@upchan</span>
-        </a>
+      <div class="contact-content">
+        <div class="contact-image-wrapper reveal">
+          <img src="images/kyun.jpg" alt="🆙chan" class="contact-image" loading="lazy">
+          <div class="contact-heart">💕</div>
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">
+          <span class="title-emoji">📬</span>
+          連絡先・フォロー
+        </h2>
+        <div class="contact-links reveal reveal-delay-2">
+          <a href="https://twitter.com/shell_lyx" class="contact-card" target="_blank" rel="noopener">
+            <div class="contact-icon-large">🐦</div>
+            <span class="contact-label">Twitter / X</span>
+            <span class="contact-handle">@shell_lyx</span>
+          </a>
+          <a href="https://github.com/upchan" class="contact-card" target="_blank" rel="noopener">
+            <div class="contact-icon-large">🐙</div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-handle">@upchan</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <p>© 2026 🆙chan. Built with ❤️ on LUKSO Blockchain.</p>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="footer-emoji">🆙</span>
+          <span class="footer-text">chan</span>
+        </div>
+        <p class="footer-text">© 2026 🆙chan. Built with <span class="heart">❤️</span> on LUKSO Blockchain.</p>
+      </div>
     </div>
   </footer>
+
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>

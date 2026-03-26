@@ -19,14 +19,11 @@
 
 - **LSP-3 プロファイル表示**: LUKSO ブロックチェーン上の Universal Profile データを取得・表示
 - **レスポンシブデザイン**: スマホ・タブレット・PC に対応
-- **ダークモード対応**: シームレスなテーマ切り替え
 - **アニメーション**: 🆙chan らしいかわいい動き
 
 ### 技術スタック
 
-- **フレームワーク**: Vanilla HTML/CSS/JavaScript (Vite も選択可能)
-- **スタイリング**: Tailwind CSS
-- **アイコン**: Font Awesome
+- **フレームワーク**: Vanilla HTML/CSS/JavaScript
 - **ブロックチェーン**: LUKSO (LSP-3, ERC725)
 
 ---
