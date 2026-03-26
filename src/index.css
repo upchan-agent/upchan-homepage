@@ -22,8 +22,8 @@
   --gradient-soft: linear-gradient(135deg, #FFE5EC 0%, #F0E6FF 100%);
   
   /* Typography */
-  --font-heading: 'Fredoka', cursive;
-  --font-body: 'Quicksand', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   /* Spacing */
   --space-xs: 0.5rem;
